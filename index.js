@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     doodler.style.left = doodlerLeftSpace + 'px'
     doodler.style.bottom = doodlerBottomSpace + 'px'
   }
+  
+  function movePlatforms() {
+    if (doodlerBottomSpace > 200) {
+        platforms.forEach(platform => {
+          platform.bottom -= 4
+          let visual = platform.visual
+          visual.style.bottom = platform.bottom + 'px'
+    }) 
+    }
+    
+  }
+  
   }
   start()
 })
