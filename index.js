@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
       this.bottom = newPlatBottom
       this.visual = document.createElement('div')
 
-     
+     const visual = this.visual
+      visual.classList.add('platform')
+      visual.style.left = this.left + 'px'
+      visual.style.bottom = this.bottom + 'px'
+      grid.appendChild(visual)
     }
   }
   
