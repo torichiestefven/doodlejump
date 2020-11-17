@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid')
   const doodler = document.createElement('div')
+  let platforms = []
+  let doodlerBottomSpace = startPoint
   
   class Platform {
     constructor(newPlatBottom) {
@@ -22,6 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
     doodlerLeftSpace = platforms[0].left
     doodler.style.left = doodlerLeftSpace + 'px'
     doodler.style.bottom = doodlerBottomSpace + 'px'
+  }
+  
+  function jump() {
+    clearInterval(downTimerId)
+    isJumping = true
+    upTimerId = setInterval(function () {
+      console.log(startPoint)
+      console.log('1', doodlerBottomSpace)
+      doodlerBottomSpace += 20
+      doodler.style.bottom = doodlerBottomSpace + 'px'
+      console.log('2',doodlerBottomSpace)
+      console.log('s',startPoint)
+      if (doodlerBottomSpace > (startPoint + 200)) {
+        fall()
+        isJumping = false
+      }
+    },30)
   }
   
   function movePlatforms() {
