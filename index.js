@@ -18,6 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
+  function createPlatforms() {
+    for(let i =0; i < platformCount; i++) {
+      let platGap = 600 / platformCount
+      let newPlatBottom = 100 + i * platGap
+      let newPlatform = new Platform (newPlatBottom)
+      platforms.push(newPlatform)
+      console.log(platforms)
+    }
+  }
+
+  
   function createDoodler() {
     grid.appendChild(doodler)
     doodler.classList.add('doodler')
