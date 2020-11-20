@@ -28,6 +28,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function jump() {
+    clearInterval(downTimerId)
+    isJumping = true
+    upTimerId = setInterval(function () {
+      console.log(startPoint)
+      console.log('1', doodlerBottomSpace)
+      doodlerBottomSpace += 20
+      doodler.style.bottom = doodlerBottomSpace + 'px'
+      console.log('2',doodlerBottomSpace)
+      console.log('s',startPoint)
+      if (doodlerBottomSpace > (startPoint + 200)) {
+        fall()
+        isJumping = false
+      }
+    },30)
+  }
   
   function createDoodler() {
     grid.appendChild(doodler)
