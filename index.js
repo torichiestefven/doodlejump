@@ -143,3 +143,26 @@ function moveLeft() {
         } else moveRight()
     },20)
   }
+
+function moveRight() {
+    if (isGoingLeft) {
+        clearInterval(leftTimerId)
+        isGoingLeft = false
+    }
+    isGoingRight = true
+    rightTimerId = setInterval(function () {
+      //changed to 313 to fit doodle image
+      if (doodlerLeftSpace <= 313) {
+        console.log('going right')
+        doodlerLeftSpace +=5
+        doodler.style.left = doodlerLeftSpace + 'px'
+      } else moveLeft()
+    },20)
+  }
+  
+  function moveStraight() {
+    isGoingLeft = false
+    isGoingRight = false
+    clearInterval(leftTimerId)
+    clearInterval(rightTimerId)
+  }
