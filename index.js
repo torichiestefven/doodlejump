@@ -166,3 +166,14 @@ function moveRight() {
     clearInterval(leftTimerId)
     clearInterval(rightTimerId)
   }
+
+function control(e) {
+    doodler.style.bottom = doodlerBottomSpace + 'px'
+    if(e.key === 'ArrowLeft') {
+      moveLeft()
+    } else if (e.key === 'ArrowRight') {
+      moveRight()
+    } else if (e.key === 'ArrowUp') {
+      moveStraight()
+    }
+  }
